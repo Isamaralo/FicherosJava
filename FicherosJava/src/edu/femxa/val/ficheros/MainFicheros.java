@@ -51,7 +51,7 @@ public class MainFicheros {
 		/**
 		 * Hacer un programa que dada una ruta, muestre los subdirectorios ocultos.
 		 */
-		File directorios_ocultos = new File ("C:\\Users\\Administrador.000\\IsabelGrupoTarde");
+		File directorios_ocultos = new File ("C:/Users/Administrador.000/IsabelGrupoTarde/FicherosJava");
 		String[] lista_ficheros_ocultos = directorios_ocultos.list();
 		
 		if (lista_ficheros_ocultos != null)
@@ -59,10 +59,12 @@ public class MainFicheros {
 			{
 				File sub_directorio = new File (lista_ficheros_ocultos[i]);
 				
-				if(sub_directorio.isDirectory() && lista_ficheros_ocultos[i].startsWith("."))
+				if((sub_directorio.isDirectory()) && (lista_ficheros_ocultos[i].charAt(0)=='.'))
 				{
-					System.out.println(lista_ficheros_ocultos[i]);
+					System.out.println("Ocultos: " +lista_ficheros_ocultos[i]);
 				}
+				else
+					System.out.println("No ocultos: " +lista_ficheros_ocultos[i]);
 			}
 			
 		else
