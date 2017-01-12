@@ -25,7 +25,7 @@ public class ListarArchivosConA {
 					int j = 0;
 					do
 					{
-						if((ficheros[i].charAt(j) == 'a') || ficheros[i].charAt(j) == 'A' )
+						if((ficheros[i].charAt(j) == 'a') || (ficheros[i].charAt(j) == 'A') )
 						{
 							System.out.println(ficheros[i]);
 							encontrado = true;
