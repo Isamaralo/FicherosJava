@@ -26,6 +26,7 @@ public class CrearYBorrarFichero {
 		
 		String nombre_fichero = null;
 		String ruta = null;
+		Scanner sc = new Scanner(System.in);
 		
 		nombre_fichero = pedirNombreFichero();
 		ruta = ".\\"+nombre_fichero;
@@ -39,8 +40,15 @@ public class CrearYBorrarFichero {
 				System.out.println("No se ha creado el fichero.");
 		}
 		
-//		if(file.delete())
-//			System.out.println("El fichero se ha borrado.");
+		System.out.println("¿Quiere borrar el fichero?(si/no)");
+		
+		if(sc.nextLine().equals("si"))
+		{
+			file.delete();
+			System.out.println(file.delete());
+			if(file.delete())
+				System.out.println("El fichero se ha borrado.");
+		}
 		
 	}
 }
