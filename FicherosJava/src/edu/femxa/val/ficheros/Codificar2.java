@@ -19,30 +19,43 @@ import java.io.IOException;
  * @author Administrador
  *
  */
-public class Codificar {
+public class Codificar2 {
     
 	/**
-	 * Método que recibe una cadena y la devuelve
-	 * codificada, al revés.
-	 * @param cadena Cadena que recibo
-	 * @return La cadena al revés
+	 * Dada una cadena, utiliza el cifrado César con clave
+	 * 7 para codificarla y se devuelve la cadena codificada.
+	 * @param cadena Cadena que recibe
+	 * @return La cadena codificada
 	 */
     public static String codifica (String cadena)
     {
         String cad_codificada = new String();
         int longi = cadena.length();
+        int num_caracter = 0;
+        char c = 0;
+        char char_codificado = 0;
         
-        for (int i = longi-1; i >= 0; i--) {
-            
-            cad_codificada += cadena.charAt(i);            
+        
+        for (int i = 0; i < longi; i++) {
+    		c = cadena.charAt(i);
+        	if(c != ' ')
+			{
+        		num_caracter = (int) c;
+        		num_caracter += 7;
+        		char_codificado = (char) num_caracter;
+			}
+			else
+				char_codificado = ' ';
+        	
+            cad_codificada += char_codificado;            
         }
         
         return cad_codificada;
     }
     
     /**
-     * Método que recibe una cadena codificada
-     * y la devuelve decodificada, dada la vuelta.
+     * Dada una cadena, la decodifica utilizando el 
+     * inverso del cifrado César con clave 7.
      * @param cadena Cadena codificada
      * @return Cadena decodificada
      */
@@ -50,10 +63,23 @@ public class Codificar {
     {
         String cad_decodificada = new String();
         int longi = cadena.length();
+        int num_caracter = 0;
+        char c = 0;
+        char char_codificado = 0;
         
-        for (int i = longi-1; i >= 0; i--) {
-            
-            cad_decodificada += cadena.charAt(i);            
+        
+        for (int i = 0; i < longi; i++) {
+    		c = cadena.charAt(i);
+        	if(c != ' ')
+			{
+        		num_caracter = (int) c;
+        		num_caracter -= 7;
+        		char_codificado = (char) num_caracter;
+			}
+			else
+				char_codificado = ' ';
+        	
+            cad_decodificada += char_codificado;            
         }
         
         return cad_decodificada;
