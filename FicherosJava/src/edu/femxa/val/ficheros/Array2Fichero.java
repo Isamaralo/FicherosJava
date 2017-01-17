@@ -85,7 +85,8 @@ public class Array2Fichero {
 				linea = array[i];
 				try {
 					bw.write(linea);
-					bw.newLine();
+					if(i < array.length-1)
+						bw.newLine();
 					ok = true;
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
