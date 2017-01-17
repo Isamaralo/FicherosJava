@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 
 public class Array2Fichero {
 	
@@ -60,8 +61,9 @@ public class Array2Fichero {
 				linea = br2.readLine();
 				i++;
 			}
-			
-			br2.close();
+			//Para asegurarme de que el fichero se cierra, la siguiente sentencia iría en 
+			//el bloque finally, que se ejecuta siempre, se produzca una excepción o no.
+			br2.close(); 
 		
 		return lista_cadena;		
 	}
@@ -103,9 +105,13 @@ public class Array2Fichero {
 		String[] lista_cadena = new String[5];
 		
 		lista_cadena = fromFichero2Array(file);
-		System.out.println("El contenido del fichero " +file.getName()+ " es: ");
-		for (int i = 0; i < lista_cadena.length; i++) {
-			System.out.println(lista_cadena[i]);
+		System.out.println("El contenido del fichero \"" +file.getName()+ "\" es: ");
+//		for (int i = 0; i < lista_cadena.length; i++) {
+//			System.out.println(lista_cadena[i]);
+//		}
+		for (String cad: lista_cadena)
+		{
+			System.out.println(cad);
 		}
 		if(fromArray2Fichero(lista_cadena))
 			System.out.println("\nEl fichero \"pepe2\" se ha creado correctamente.");
