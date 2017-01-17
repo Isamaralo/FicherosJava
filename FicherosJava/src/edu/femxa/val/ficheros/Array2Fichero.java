@@ -73,7 +73,7 @@ public class Array2Fichero {
 	 * @return True si se ha escrito el fichero correctamente y false si no
 	 * @throws IOException
 	 */
-	public static boolean fromArray2Fichero (String[] array) throws IOException
+	public static boolean fromArray2Fichero (String[] array) throws IOException 
 	{
 		boolean ok = false;
 		File file = new File("pepe2");
@@ -83,9 +83,14 @@ public class Array2Fichero {
 		
 			for (int i = 0; i < array.length; i++) {
 				linea = array[i];
-				bw.write(linea);
-				bw.newLine();
-				ok = true;
+				try {
+					bw.write(linea);
+					bw.newLine();
+					ok = true;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			
 			bw.close();
