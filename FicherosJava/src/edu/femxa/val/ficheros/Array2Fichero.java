@@ -1,41 +1,76 @@
 package edu.femxa.val.ficheros;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Array2Fichero {
 	
+	/**
+	 * Método que lee un fichero de texto y guarda el contenido
+	 * en un array. Primero recorre el fichero para saber
+	 * cuántas líneas tiene y reserva espacio en el array.
+	 * Luego recorre el fichero y guarda en cada posición del array
+	 * una línea.
+	 * @param file Fichero que hay que leer
+	 * @return Array con el contenido del fichero
+	 * @throws IOException
+	 */
 	public static String[] fromFichero2Array (File file) throws IOException
 	{
 		String[] lista_cadena = null;
-		lista_cadena = new String[5];
+		int num_lineas = 0;
 		BufferedReader br = new BufferedReader(new FileReader(new File(file.getName())));
-		int i = 0;
-		String linea = null;
+		String linea = "";
 		
-			linea = br.readLine();
+			while(br.readLine() != null)
+			{
+				num_lineas++;
+			}
+			lista_cadena = new String[num_lineas];
+			br.close();
+			BufferedReader br2 = new BufferedReader(new FileReader(new File(file.getName())));
+
+			int i = 0;
+			linea = br2.readLine();
 			while(linea != null)
 			{
 				lista_cadena[i] = linea;
-				linea = br.readLine();
+				linea = br2.readLine();
+				i++;
 			}
 			
-			br.close();
+			br2.close();
 		
 		return lista_cadena;		
 	}
 	
-	public static boolean fromArray2Fichero (String[] array)
+	/**
+	 * Método que escribe en un fichero el contenido de un array.
+	 * @param array Objeto en el que está el contenido que hay que guardar en el fichero
+	 * @return True si se ha escrito el fichero correctamente y false si no
+	 * @throws IOException
+	 */
+	public static boolean fromArray2Fichero (String[] array) throws IOException
 	{
 		boolean ok = false;
 		File file = new File("pepe2");
+		file.createNewFile();
+		BufferedWriter bw = new	BufferedWriter(new FileWriter("pepe2", ok));
+		String linea = null;
 		
-		
+			for (int i = 0; i < array.length; i++) {
+				linea = array[i];
+				bw.write(linea);
+				bw.newLine();
+				ok = true;
+			}
 			
-		
+			bw.close();
+			
 		return ok;
 	}
 	
@@ -45,7 +80,12 @@ public class Array2Fichero {
 		String[] lista_cadena = new String[5];
 		
 		lista_cadena = fromFichero2Array(file);
-		
+		System.out.println("El contenido del fichero " +file.getName()+ " es: ");
+		for (int i = 0; i < lista_cadena.length; i++) {
+			System.out.println(lista_cadena[i]);
+		}
+		if(fromArray2Fichero(lista_cadena))
+			System.out.println("\nEl fichero \"pepe2\" se ha creado correctamente.");
 		
 	}
 
