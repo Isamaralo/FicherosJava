@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class Array2Fichero {
 	
-	
 	/**
 	 * Método que recibe un fichero y lo recorre para
 	 * saber cuántas líneas tiene.
@@ -78,7 +77,7 @@ public class Array2Fichero {
 		boolean ok = false;
 		File file = new File("pepe2");
 		file.createNewFile();
-		BufferedWriter bw = new	BufferedWriter(new FileWriter("pepe2", ok));
+		BufferedWriter bw = new	BufferedWriter(new FileWriter(file));
 		String linea = null;
 		
 			for (int i = 0; i < array.length; i++) {
