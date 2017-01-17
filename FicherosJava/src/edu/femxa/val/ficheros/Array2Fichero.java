@@ -78,7 +78,7 @@ public class Array2Fichero {
 	{
 		boolean ok = false;
 		File file = new File("pepe2");
-		file.createNewFile();
+		
 		BufferedWriter bw = new	BufferedWriter(new FileWriter(file));
 		String linea = null;
 		
