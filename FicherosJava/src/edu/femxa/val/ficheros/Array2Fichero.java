@@ -3,15 +3,38 @@ package edu.femxa.val.ficheros;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Array2Fichero {
 	
+	
+	/**
+	 * Método que recibe un fichero y lo recorre para
+	 * saber cuántas líneas tiene.
+	 * @param file Ficheo que hay que recorrer
+	 * @return Número de líneas que tiene el fichero
+	 * @throws IOException
+	 */
+	public static int cuentaLineas (File file) throws IOException
+	{
+		int num_lineas = 0;
+		BufferedReader br = new BufferedReader(new FileReader(new File(file.getName())));
+			
+			while(br.readLine() != null)
+			{
+				num_lineas++;
+			}
+			br.close();
+			
+		return num_lineas;
+	}
+	
 	/**
 	 * Método que lee un fichero de texto y guarda el contenido
-	 * en un array. Primero recorre el fichero para saber
+	 * en un array. Primero llama al método cuentaLineas para saber
 	 * cuántas líneas tiene y reserva espacio en el array.
 	 * Luego recorre el fichero y guarda en cada posición del array
 	 * una línea.
@@ -26,10 +49,7 @@ public class Array2Fichero {
 		BufferedReader br = new BufferedReader(new FileReader(new File(file.getName())));
 		String linea = "";
 		
-			while(br.readLine() != null)
-			{
-				num_lineas++;
-			}
+			num_lineas = cuentaLineas(file);
 			lista_cadena = new String[num_lineas];
 			br.close();
 			BufferedReader br2 = new BufferedReader(new FileReader(new File(file.getName())));
