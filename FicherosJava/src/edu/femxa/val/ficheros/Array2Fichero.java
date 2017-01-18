@@ -102,9 +102,7 @@ public class Array2Fichero {
 	public static void main(String[] args) throws IOException {
 		
 		File file = new File("pepe");
-		String[] lista_cadena = new String[5];
-		
-		lista_cadena = fromFichero2Array(file);
+		String[] lista_cadena = fromFichero2Array(file);
 		System.out.println("El contenido del fichero \"" +file.getName()+ "\" es: ");
 //		for (int i = 0; i < lista_cadena.length; i++) {
 //			System.out.println(lista_cadena[i]);
