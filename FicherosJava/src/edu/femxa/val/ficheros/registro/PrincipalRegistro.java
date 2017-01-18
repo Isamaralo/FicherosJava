@@ -34,7 +34,7 @@ public class PrincipalRegistro {
 					do
 					{
 						if(intentos > 0)
-							System.out.println("Inténtalo de nuevo: ");
+							System.out.println("Inténtelo de nuevo: ");
 						nombre = EntradaSalida.pedirNombre();
 						password = EntradaSalida.pedirPassword();
 						if(Registro.acceder(nombre, password))
@@ -48,7 +48,7 @@ public class PrincipalRegistro {
 					while(intentos < 3);
 					if(intentos == 3)
 					{
-						System.out.println("Has superados los 3 intentos de acceder al sistema.\n");
+						System.out.println("Ha superados los 3 intentos de acceder al sistema.\n");
 						System.exit(1);
 					}
 					break;
