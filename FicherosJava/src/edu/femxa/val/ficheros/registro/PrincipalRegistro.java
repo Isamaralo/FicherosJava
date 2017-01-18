@@ -56,7 +56,7 @@ public class PrincipalRegistro {
 					break;
 				}
 			} catch (Exception e) {
-				System.out.println("Ha introducido un carácter incorrecto.\n");
+				System.out.println("Ha introducido un caracter incorrecto.\n");
 			}			
 		}
 		while(opcion!=3);
