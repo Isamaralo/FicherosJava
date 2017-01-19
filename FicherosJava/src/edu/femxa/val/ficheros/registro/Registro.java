@@ -38,7 +38,6 @@ public class Registro {
 			if(ok)
 			{
 				bw.write(nombre);
-				bw.newLine();
 				pwd_cifrada = Codificar.codifica(password);
 				bw2.write(pwd_cifrada);
 				ok = true;
