@@ -1,4 +1,4 @@
-package ficherosDePropiedades;
+package edu.femxa.val.ficherosDePropiedades;
 
 import java.io.FileReader;
 import java.io.IOException;
