@@ -5,7 +5,7 @@ public class Libro {
 	private String isbn;
 	private String titulo;
 	private String autor;
-	private int anyo;
+	private String anyo;
 	private String editorial;
 	
 	public String getIsbn() {
@@ -26,10 +26,10 @@ public class Libro {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-	public int getAnyo() {
+	public String getAnyo() {
 		return anyo;
 	}
-	public void setAnyo(int anyo) {
+	public void setAnyo(String anyo) {
 		this.anyo = anyo;
 	}
 	public String getEditorial() {
