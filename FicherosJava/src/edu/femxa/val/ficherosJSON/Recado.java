@@ -92,9 +92,6 @@ public class Recado implements Comparable<Recado>{
 	@Override
 	public int compareTo(Recado r) {
 		// TODO Auto-generated method stub
-		if(telefono.compareTo(r.telefono) > 0)
-			return -1;
-		else
-			return 1;
+		return telefono.compareTo(r.telefono);
 	}
 }
