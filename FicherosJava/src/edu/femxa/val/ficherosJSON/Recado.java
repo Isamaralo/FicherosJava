@@ -87,7 +87,7 @@ public class Recado implements Comparable<Recado>{
 	public String toString() {
 		// TODO Auto-generated method stub
 		//return super.toString();
-		return this.telefono+" "+this.nombre_cliente;
+		return this.nombre_cliente+" "+this.telefono+" "+this.descripcion;
 	}
 	@Override
 	public int compareTo(Recado r) {
