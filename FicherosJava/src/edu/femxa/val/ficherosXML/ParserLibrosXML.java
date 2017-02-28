@@ -1,6 +1,7 @@
 package edu.femxa.val.ficherosXML;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.xml.sax.Attributes;
@@ -9,6 +10,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class ParserLibrosXML extends DefaultHandler{
 	
+	private HashMap<String, Libro> hm;
 	private Libro libro;
 	private List<Libro> lista_libros;
 	private String valor_actual; //Valor de lo que hay entre las etiquetas de apertura y cierre
@@ -21,6 +23,7 @@ public class ParserLibrosXML extends DefaultHandler{
 		//Tengo el libro vacío
 		//this.libro = new Libro(); -> No lo puedo crear aquí, tiene que ser cada vez que haya un nuevo element "libro"
 		this.lista_libros = new ArrayList<Libro>();
+		this.hm = new HashMap<String, Libro>();
 	}
 	
 	@Override
@@ -36,6 +39,10 @@ public class ParserLibrosXML extends DefaultHandler{
 			System.out.println("AÑO = " +libros.getAnyo());
 			System.out.println("EDITORIAL = " +libros.getEditorial());
 		}
+		for (Libro libro : lista_libros) {
+			hm.put(libro.getIsbn(), libro);
+		}
+		MapaLibros.setHm(hm);
 	}
 	
 	@Override

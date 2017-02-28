@@ -38,4 +38,9 @@ public class Libro {
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.titulo;
+	}
 }

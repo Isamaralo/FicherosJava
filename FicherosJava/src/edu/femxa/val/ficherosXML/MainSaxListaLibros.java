@@ -22,5 +22,9 @@ public class MainSaxListaLibros {
 		//Le paso el fichero que quiero parsear
 		reader.parse(new InputSource(new FileInputStream("libros.xml"))); //InputSource se utiliza cuando utilizo Sax para leer el fichero XML
 		
+
+		for (String string : MapaLibros.getHm().keySet()) {
+			System.out.println(string);
+		}
 	}
 }
